@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meme_generator/screen/meme_generator_screen.dart';
+
+import 'package:meme_generator/screens/custom_paint_demotivator_screen.dart';
+import 'package:meme_generator/screens/livsey_meme_screen.dart';
+import 'package:meme_generator/screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,11 +18,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MemeGeneratorScreen(),
+      home: const MainPage(),
+        routes: {
+          '/main_page': (context) => const MainPage(),
+          '/demotivator_page': (context) => const CustomPainterWidget(),
+          '/livsey_page': (context) => const LivseyScreen(),
+        }
     );
   }
 }
